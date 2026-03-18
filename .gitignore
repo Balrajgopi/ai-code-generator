@@ -1,3 +1,8 @@
+# Environment variables (NEVER commit these — contains API keys!)
+.env
+.env.local
+.env.*.local
+
 # Build outputs
 codeagent-wrapper/codeagent-wrapper
 codeagent-wrapper/*.exe
@@ -64,3 +69,6 @@ FINAL_VERIFICATION.md
 
 # Old package tarballs
 *.tgz
+node_modules/
+.env
+generated_project/
