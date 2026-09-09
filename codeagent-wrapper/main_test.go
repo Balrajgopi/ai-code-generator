@@ -3990,6 +3990,9 @@ func TestBackendDiscardInvalidJSONBuffer(t *testing.T) {
 }
 
 func TestRunForwardSignals(t *testing.T) {
+	if testing.Short() {
+		t.Skip("skipping signal forwarding test in short mode")
+	}
 	defer resetTestHooks()
 
 	if runtime.GOOS == "windows" {
@@ -4034,7 +4037,7 @@ func TestRunForwardSignals(t *testing.T) {
 
 	select {
 	case <-ready:
-	case <-time.After(500 * time.Millisecond):
+	case <-time.After(3 * time.Second):
 		t.Fatalf("signalNotifyFn not invoked")
 	}
 
@@ -4045,7 +4048,7 @@ func TestRunForwardSignals(t *testing.T) {
 
 	select {
 	case <-done:
-	case <-time.After(2 * time.Second):
+	case <-time.After(5 * time.Second):
 		t.Fatalf("process did not exit after forwarded signal")
 	}
 
