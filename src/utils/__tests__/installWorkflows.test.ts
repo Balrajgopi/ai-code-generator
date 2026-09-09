@@ -82,7 +82,7 @@ describe('installWorkflows E2E — mcpProvider="skip"', () => {
 
   it('planner.md frontmatter has no MCP tool in tools declaration', async () => {
     const content = readFileSync(join(tmpDir, 'agents', 'ccg', 'planner.md'), 'utf-8')
-    const toolsLine = content.split('\n').find(l => l.startsWith('tools:'))
+    const toolsLine = content.split('\n').find(l => l.startsWith('tools:'))?.trim()
     expect(toolsLine).toBe('tools: Read, Write')
   })
 })

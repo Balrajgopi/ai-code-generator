@@ -14,10 +14,11 @@ jobs:
       - uses: actions/checkout@v4
 
       - uses: akhilmhdh/contributors-readme-action@v2.3.2
+        continue-on-error: true
         env:
           GITHUB_TOKEN: ${{ github.token }}
         with:
           readme_path: "README.md,README.zh-CN.md"
           columns_per_row: 7
           image_size: 100
-          exclude: "claude"
+          exclude: "claude,bots"
