@@ -7,9 +7,11 @@ const client = new Groq({
 // Models listed in priority order — first available wins.
 // Update this list if Groq deprecates a model in the future.
 const MODELS = [
-    "llama-3.1-8b-instant",      // Fast, lightweight — primary choice
-    "llama-3.3-70b-versatile",   // More capable fallback
-    "mixtral-8x7b-32768",        // Last resort fallback
+    "openai/gpt-oss-20b",
+    "qwen/qwen3.6-27b",
+    "openai/gpt-oss-120b",
+    "llama-3.3-70b-versatile",
+    "llama-3.1-8b-instant",
 ];
 
 async function askGroq(prompt) {
@@ -35,19 +37,8 @@ async function askGroq(prompt) {
             return response.choices[0].message.content;
 
         } catch (error) {
-            const isDeprecated =
-                error.message?.includes("decommissioned") ||
-                error.message?.includes("deprecated") ||
-                error.message?.includes("not supported");
-
-            if (isDeprecated) {
-                console.warn(`⚠️  Model "${model}" is no longer available. Trying next...`);
-                continue; // Try the next model in the list
-            }
-
-            // Unexpected error — stop and report immediately
-            console.error("❌ Groq Error:", error.message);
-            return "Error with Groq API";
+            console.warn(`⚠️  Model "${model}" failed: ${error.message}. Trying next...`);
+            continue; // Try next model in the list
         }
     }
 
