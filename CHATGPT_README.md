@@ -1,8 +1,8 @@
 # AI Context & Architecture Guide for ChatGPT
 
 > **Notice:** This document is automatically generated and refreshed.
-> **Last Synced:** `2026-09-09 14:08:59 UTC`
-> **Git Branch:** `main` | **Latest Commit:** `64d86b6 - feat(groq): update models to active endpoints and improve fallback handling (11 minutes ago) by Balraj Gopi`
+> **Last Synced:** `2026-09-09 14:09:47 UTC`
+> **Git Branch:** `main` | **Latest Commit:** `828d327 - feat: add automated ChatGPT context generator and refresh script (0 seconds ago) by Balraj Gopi`
 
 ---
 
@@ -85,15 +85,15 @@ ccg-workflow/
 - **Branch:** `main`
 - **Recent Git History:**
 ```text
+828d327 feat: add automated ChatGPT context generator and refresh script
 64d86b6 feat(groq): update models to active endpoints and improve fallback handling
 fc710b5 fix(ci): skip slow signal forwarding test in short mode for CI reliability
 3b583dc fix(ci): sync pnpm-lock.yaml, fix mcp type error, and configure contributors action
 9919783 chore: strengthen .gitignore to prevent secret leaks
-35cd0e5 FIRST Commit
 ```
 - **Working Tree Status:**
 ```text
-?? scripts/
+Working tree clean
 ```
 
 ---
